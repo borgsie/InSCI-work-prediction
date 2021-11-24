@@ -37,7 +37,7 @@ plotly_build2 <- function(...) {
 # gender2
 gather_draws(fit, b_gender2) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_gender2 - F") -> plot1
+  facet_grid(~"Female") -> plot1
 
 # age
 gather_draws(fit, b_age) %>% mutate(effect = .value) %>%
@@ -47,29 +47,29 @@ gather_draws(fit, b_age) %>% mutate(effect = .value) %>%
 # marital_status2
 gather_draws(fit, b_marital_status2) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_marital_status2 - Married") -> plot3
+  facet_grid(~"Married") -> plot3
 # marital_status3
 gather_draws(fit, b_marital_status3) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_marital_status3, Divorced") -> plot4
+  facet_grid(~"Divorced") -> plot4
 
 # level_completeness2
 gather_draws(fit, b_level_completeness2) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_level_completeness2, TI") -> plot5
+  facet_grid(~"Tetra, incomplete") -> plot5
 # level_completeness3
 gather_draws(fit, b_level_completeness3) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_level_completeness3, PC") -> plot6
+  facet_grid(~"Para, complete") -> plot6
 # level_completeness4
 gather_draws(fit, b_level_completeness4) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_level_completeness4, TC") -> plot7
+  facet_grid(~"Tetra, complete") -> plot7
 
 # trauma2
 gather_draws(fit, b_trauma2) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_trauma2, NT") -> plot8
+  facet_grid(~"Non-traumatic") -> plot8
 
 # tsi
 gather_draws(fit, b_tsi) %>% mutate(effect = .value) %>%
@@ -79,60 +79,60 @@ gather_draws(fit, b_tsi) %>% mutate(effect = .value) %>%
 # general_health2
 gather_draws(fit, b_general_health2) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_general_health2, neither") -> plot10
+  facet_grid(~"Gen. health, neither") -> plot10
 # general_health1
 gather_draws(fit, b_general_health1) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"general_health1, poor") -> plot11
+  facet_grid(~"Gen. health, poor") -> plot11
 
 # second_health
 gather_draws(fit, b_second_health) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_second_health") -> plot12
+  facet_grid(~"Secondary cond.") -> plot12
 
 # hosp1
 gather_draws(fit, b_hosp1) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_hosp1, 1Hosp")-> plot13
+  facet_grid(~"1 Hospitalisation")-> plot13
 # hosp2
 gather_draws(fit, b_hosp2) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_hosp2, 2Hosp") -> plot14
+  facet_grid(~"2 Hospitalisations") -> plot14
 # hosp3
 gather_draws(fit, b_hosp3) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_hosp3, >2Hosps") -> plot15
+  facet_grid(~">2 Hospitalisations") -> plot15
 
 # sf36
 gather_draws(fit, b_sf36) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"SF36") -> plot16
+  facet_grid(~"SF-36") -> plot16
 
 # pre_job1
 gather_draws(fit, b_pre_job1) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_pre_job1, yes") -> plot17
+  facet_grid(~"Pre-injury job") -> plot17
 
 # education2
 gather_draws(fit, b_education2) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_education2, high 2nd") -> plot18
+  facet_grid(~"High 2nd education") -> plot18
 # education3
 gather_draws(fit, b_education3) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_education3, post2nd") -> plot19
+  facet_grid(~"Post-2nd education") -> plot19
 # education4
 gather_draws(fit, b_education4) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_education4, dipl") -> plot20
+  facet_grid(~"Diploma") -> plot20
 # education5
 gather_draws(fit, b_education5) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_education5, bach") -> plot21
+  facet_grid(~"Bachelor") -> plot21
 # education6
 gather_draws(fit, b_education6) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_education6, master") -> plot22
+  facet_grid(~"Masters") -> plot22
 
 # disabil_pension1
 gather_draws(fit, b_disabil_pension1) %>% mutate(effect = .value) %>%
@@ -147,16 +147,16 @@ gather_draws(fit, b_daily_ass1) %>% mutate(effect = .value) %>%
 # geography2
 gather_draws(fit, b_geography2) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_geography2, rural") -> plot25
+  facet_grid(~"Rural area") -> plot25
 # geography3
 gather_draws(fit, b_geography3) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_geography3, remote") -> plot26
+  facet_grid(~"Remote area") -> plot26
 
 # pain
 gather_draws(fit, b_pain) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"Pain") -> plot27
+  facet_grid(~"Pain scale") -> plot27
 
 # activity
 gather_draws(fit, b_activity) %>% mutate(effect = .value) %>%
@@ -166,48 +166,48 @@ gather_draws(fit, b_activity) %>% mutate(effect = .value) %>%
 # qol2
 gather_draws(fit, b_qol1) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_qol1, poor") -> plot29
+  facet_grid(~"QoL, poor") -> plot29
 # qol3
 gather_draws(fit, b_qol2) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_qol2, neither") -> plot30
+  facet_grid(~"QoL, neither") -> plot30
 
 # voc_rehab3
 gather_draws(fit, b_voc_rehab3) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_voc_rehab3, some") -> plot31
+  facet_grid(~"Some VR use") -> plot31
 # voc_rehab3
 gather_draws(fit, b_voc_rehab4) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_voc_rehab4, lots") -> plot32
+  facet_grid(~"A great deal VR") -> plot32
 # voc_rehab4
 gather_draws(fit, b_voc_rehab1) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_voc_rehab1, no need") -> plot33
+  facet_grid(~"VR, not needed") -> plot33
 
 # sleep2
 gather_draws(fit, b_sleep2) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_sleep2, poor") -> plot34
+  facet_grid(~"Sleep, poor") -> plot34
 
 # scim
 gather_draws(fit, b_scim) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"SCIM") -> plot35
+  facet_grid(~"m-SCIM-SR") -> plot35
 
 # social_att1
 gather_draws(fit, b_social_att2) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_social_att2, some") -> plot36
+  facet_grid(~"Attitude, influential") -> plot36
 # social_att2
 gather_draws(fit, b_social_att3) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"b_social_att3, N/A") -> plot37
+  facet_grid(~"Attitutde, N/A") -> plot37
 
 # transport
 gather_draws(fit, b_transport) %>% mutate(effect = .value) %>%
   ggplot() + stat_halfeye(aes(x = effect), .width = c(0.66, 0.95)) + theme_bw(base_size = 10) + insci_theme + insci_labs + insci_line +
-  facet_grid(~"transport") -> plot38
+  facet_grid(~"Transport mini-scale") -> plot38
 
 # Panel of effects (logit)
 plot_grid(plot1, plot2, plot3, plot4, plot5, plot6, plot7, plot8, plot9, plot10,
